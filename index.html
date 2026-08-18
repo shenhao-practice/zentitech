@@ -56,6 +56,13 @@
   .nav-links a{color:var(--ink);font-size:13px;font-weight:400;opacity:.85;white-space:nowrap}
   .nav-links a:hover{opacity:1;text-decoration:none}
   .nav-links a.cta{color:var(--accent);font-weight:500}
+  .nav-burger{display:none;flex-direction:column;justify-content:center;align-items:center;
+    width:38px;height:38px;margin:-6px;cursor:pointer;border-radius:9px;-webkit-tap-highlight-color:transparent}
+  .nav-burger span{position:relative;display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:background .2s ease}
+  .nav-burger span::before,.nav-burger span::after{content:"";position:absolute;left:0;width:22px;height:2px;
+    background:var(--ink);border-radius:2px;transition:transform .25s ease,top .25s ease}
+  .nav-burger span::before{top:-7px}
+  .nav-burger span::after{top:7px}
 
   /* ---------- Layout helpers ---------- */
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
@@ -151,10 +158,24 @@
     .panel{padding:88px 0}
     .stats,.how,.contact{padding:88px 0}
   }
+  @media(max-width:720px){
+    .nav-burger{display:flex}
+    .nav-links{position:fixed;top:var(--nav-h);left:0;right:0;
+      flex-direction:column;align-items:stretch;gap:0;overflow:hidden;
+      background:rgba(255,255,255,.98);
+      -webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
+      border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(0,0,0,.06);
+      max-height:0;padding:0 22px;
+      transition:max-height .32s ease,padding .32s ease}
+    .nav-links a{padding:15px 2px;font-size:16px;opacity:1;border-bottom:1px solid var(--line)}
+    .nav-links a:last-child{border-bottom:none}
+    .nav-toggle:checked ~ .nav-links{max-height:calc(100vh - var(--nav-h));padding:6px 22px 14px}
+    .nav-toggle:checked ~ .nav-burger span{background:transparent}
+    .nav-toggle:checked ~ .nav-burger span::before{top:0;transform:rotate(45deg)}
+    .nav-toggle:checked ~ .nav-burger span::after{top:0;transform:rotate(-45deg)}
+  }
   @media(max-width:520px){
     .steps{grid-template-columns:1fr}
-    .nav-links{gap:18px}
-    .brand span{display:none}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
@@ -312,7 +333,7 @@
     <p class="lead reveal">Start with a discovery call and a costed plan. Low-risk, and you own everything we build.</p>
     <div class="actions reveal" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
       <a class="btn" href="mailto:info@zentitech.com">Email us</a>
-      <a class="btn line" href="assets/pdf/zentitech-brochure.pdf" download>Download brochure (PDF)</a>
+      <a class="btn ghost" href="assets/pdf/zentitech-brochure.pdf" download>Download brochure (PDF)</a>
     </div>
   </div>
 </section>
@@ -320,7 +341,7 @@
 <!-- ===== Footer ===== -->
 <footer>
   <div class="foot-inner">
-    <div>&copy; Zentitech 2026. AI Video · Strategic Consulting · Delivery.</div>
+    <div>@zentitech 2026. AI Video · Strategic Consulting · Delivery.</div>
     <div class="foot-links">
       <a href="#consulting">Consulting</a>
       <a href="#delivery">Delivery</a>

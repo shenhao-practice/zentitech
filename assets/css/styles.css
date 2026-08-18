@@ -115,8 +115,6 @@ h1,h2,h3{letter-spacing:-.02em;font-weight:600;line-height:1.08}
 .btn:hover{background:var(--accent-press);text-decoration:none;transform:translateY(-1px)}
 .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
 .btn.ghost:hover{background:rgba(255,255,255,.08)}
-.btn.line{background:#fff;color:var(--ink);border:1px solid var(--line)}
-.btn.line:hover{background:var(--bg2)}
 .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
 /* ---- Footer ---- */
