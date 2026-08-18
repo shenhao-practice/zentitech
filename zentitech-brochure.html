@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zentitech - Company Brochure</title>
+<meta name="description" content="Zentitech company brochure: AI strategic consulting, AI delivery, AI video generation, and the AI accelerator.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23e9eef3'/%3E%3Cpath d='M9 9H39V15H9Z' fill='%231e3050'/%3E%3Cpath d='M33 15H39L15 33H9Z' fill='%231e3050'/%3E%3Cpath d='M9 33H39V39H9Z' fill='%231e3050'/%3E%3Crect x='9' y='13.2' width='20' height='2.3' fill='%233bbccd'/%3E%3Crect x='19' y='32.8' width='20' height='2.3' fill='%233bbccd'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#1d1d1f;--muted:#5c6270;--line:#dfe3ea;
+    --navy:#1e3050;--teal:#3bbccd;
+    --consult:#7d5cff;--delivery:#e08a00;--video:#0071e3;--accel:#00a37a;
+    --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);color:var(--ink);background:#e7ebf1;-webkit-font-smoothing:antialiased;line-height:1.5}
+  h1,h2,h3{letter-spacing:-.02em;font-weight:600;line-height:1.08}
+
+  /* Page model - A4 (fixed geometry so screen == print, one sheet per page) */
+  .page{
+    position:relative;width:210mm;height:297mm;background:#fff;margin:22px auto;
+    padding:20mm 22mm;box-shadow:0 12px 40px rgba(20,30,50,.16);overflow:hidden;display:flex;flex-direction:column;
+  }
+  .pg-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;
+    font-size:10.5px;color:var(--muted);letter-spacing:.02em}
+
+  /* Brand mark */
+  .mark{width:30px;height:30px;display:block}
+  .brandrow{display:flex;align-items:center;gap:11px}
+  .brandrow .name{font-weight:600;font-size:20px;letter-spacing:-.01em}
+
+  /* Cover */
+  .cover{background:radial-gradient(60% 55% at 30% 20%,#213a63 0%,#16233d 55%,#0e1729 100%);color:#eef2f8;justify-content:space-between}
+  .cover .name{color:#fff}
+  .cover .kicker{font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:#8fb2e6;margin-top:80px}
+  .cover h1{font-size:58px;color:#fff;max-width:15ch;margin-top:14px}
+  .cover .sub{font-size:20px;color:#b8c6dd;max-width:34ch;margin-top:20px;font-weight:400}
+  .cover .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+  .cover .chip{font-size:12.5px;padding:7px 14px;border:1px solid rgba(255,255,255,.28);border-radius:980px;color:#dbe6f6}
+  .cover .cover-foot{display:flex;justify-content:space-between;align-items:flex-end;font-size:12.5px;color:#9fb2cf}
+  .cover .cover-foot .teal{color:var(--teal)}
+
+  /* Section heads */
+  .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+  .lede{font-size:17px;color:var(--muted);max-width:56ch}
+  h2.big{font-size:38px;max-width:18ch;margin:2px 0 14px}
+  .rule{height:4px;width:56px;border-radius:4px;margin:0 0 22px}
+
+  /* Overview arc */
+  .arc{display:flex;flex-direction:column;gap:14px;margin-top:26px}
+  .arcrow{display:flex;gap:18px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+  .arcrow .idx{flex:0 0 auto;width:40px;height:40px;border-radius:50%;color:#fff;font-weight:600;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .arcrow h3{font-size:18px;margin-bottom:3px}
+  .arcrow p{font-size:14px;color:var(--muted)}
+
+  /* Practice page */
+  .ptop{display:flex;align-items:center;justify-content:space-between}
+  .pnum{font-size:64px;font-weight:700;letter-spacing:-.03em;line-height:1;opacity:.16}
+  .picon{width:52px;height:52px}
+  .steps{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+  .stp{display:flex;gap:16px;align-items:flex-start}
+  .stp .sn{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .stp h4{font-size:15.5px;margin-bottom:2px}
+  .stp p{font-size:13.5px;color:var(--muted)}
+  .blk{margin-top:26px}
+  .blk .lbl{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  .card{border:1px solid var(--line);border-radius:14px;padding:16px}
+  .card h4{font-size:15px;margin-bottom:5px}
+  .card p{font-size:13px;color:var(--muted)}
+  .checks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 26px;margin-top:4px}
+  .checks li{font-size:14px;padding-left:26px;position:relative}
+  .checks li::before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;border-radius:50%;background:var(--teal);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 13l4 4L19 7' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat;
+    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 13l4 4L19 7' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+
+  /* Two-up page (how we work + why) */
+  .half{padding-top:6px}
+  .phase{display:flex;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line)}
+  .phase .pn{font-size:13px;font-weight:700;color:var(--navy);width:26px}
+  .phase h4{font-size:15px;margin-bottom:1px}
+  .phase p{font-size:13px;color:var(--muted)}
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+  .why .w{border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+  .why .w h4{font-size:14.5px;margin-bottom:3px}
+  .why .w p{font-size:12.5px;color:var(--muted)}
+
+  /* Back cover */
+  .back{background:radial-gradient(60% 55% at 70% 25%,#213a63 0%,#16233d 55%,#0e1729 100%);color:#eef2f8;justify-content:space-between}
+  .back h2{font-size:40px;color:#fff;max-width:16ch}
+  .back .sub{font-size:18px;color:#b8c6dd;max-width:40ch;margin-top:16px}
+  .back .contact{margin-top:36px;font-size:16px;line-height:2}
+  .back .contact .k{color:#8fb2e6;display:inline-block;width:90px}
+  .back .contact a{color:#fff;text-decoration:none}
+  .back .disc{font-size:11px;color:#7f93b2;max-width:60ch}
+
+  /* Toolbar (screen only) */
+  .bar{position:fixed;top:16px;right:16px;z-index:50;display:flex;gap:10px}
+  .bar button{font-family:inherit;font-size:13px;font-weight:500;border:none;border-radius:980px;padding:10px 18px;cursor:pointer;
+    background:var(--navy);color:#fff;box-shadow:0 6px 20px rgba(20,30,50,.25)}
+  .bar button:hover{background:#28406a}
+
+  @media print{
+    html,body{background:#fff;margin:0}
+    .page{
+      width:210mm;height:297mm;margin:0;box-shadow:none;padding:20mm 22mm;
+      break-after:page;page-break-after:always;break-inside:avoid;overflow:hidden;
+    }
+    .page:last-child{break-after:auto;page-break-after:auto}
+    .bar{display:none}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+  @page{size:A4;margin:0}
+</style>
+</head>
+<body>
+
+<div class="bar"><button onclick="window.print()">Print / Save as PDF</button></div>
+
+<!-- ===== Page 1: Cover ===== -->
+<section class="page cover">
+  <div class="brandrow">
+    <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+      <rect width="48" height="48" rx="12" fill="#e9eef3"/>
+      <path d="M9 9H39V15H9Z" fill="#1e3050"/><path d="M33 15H39L15 33H9Z" fill="#1e3050"/><path d="M9 33H39V39H9Z" fill="#1e3050"/>
+      <rect x="9" y="13.2" width="20" height="2.3" fill="#3bbccd"/><rect x="19" y="32.8" width="20" height="2.3" fill="#3bbccd"/>
+    </svg>
+    <span class="name">Zentitech</span>
+  </div>
+  <div>
+    <p class="kicker">Company Brochure</p>
+    <h1>We turn AI ambition into shipped outcomes.</h1>
+    <p class="sub">An AI studio and consultancy that sets the strategy and hands you the working system.</p>
+    <div class="chips">
+      <span class="chip">Strategic Consulting</span>
+      <span class="chip">AI Delivery</span>
+      <span class="chip">AI Video</span>
+      <span class="chip">AI Accelerator</span>
+    </div>
+  </div>
+  <div class="cover-foot">
+    <span>Strategy · Delivery · Video · Acceleration</span>
+    <span class="teal">zentitech.com</span>
+  </div>
+</section>
+
+<!-- ===== Page 2: Overview ===== -->
+<section class="page">
+  <p class="eyebrow" style="color:var(--navy)">Who we are</p>
+  <h2 class="big">One team across strategy, creative, and build.</h2>
+  <div class="rule" style="background:var(--teal)"></div>
+  <p class="lede">Zentitech is an AI studio and consultancy that helps organisations move from AI ambition to measurable, production-grade results. Where most partners either advise without building, or build without a strategy, we do both. We bring together three disciplines that rarely sit under one roof - creative production, strategic consulting, and software engineering - so a strategy is grounded in what can be built, a video looks intentional and on-brand, and a tool is production-ready rather than a fragile demo.</p>
+  <p class="lede" style="margin-top:14px">We work in short, outcome-based cycles. Every phase ends with something tangible you can review, use, and decide on. There are no long lock-ins and no black boxes: you own the code, prompts, pipelines, and playbooks we produce.</p>
+
+  <div class="arc">
+    <div class="arcrow"><div class="idx" style="background:var(--consult)">1</div><div><h3>We decide where AI wins</h3><p>Strategic consulting: a prioritised, costed roadmap and a clear path from pilot to production.</p></div></div>
+    <div class="arcrow"><div class="idx" style="background:var(--delivery)">2</div><div><h3>We build it for real</h3><p>AI delivery: production-grade tools, agents, and automations you own and operate.</p></div></div>
+    <div class="arcrow"><div class="idx" style="background:var(--video)">3</div><div><h3>We bring it to life</h3><p>AI video: cinematic, on-brand content at a fraction of the cost and time, powered by Seedance.</p></div></div>
+    <div class="arcrow"><div class="idx" style="background:var(--accel)">4</div><div><h3>We accelerate everything</h3><p>AI accelerator: reusable assets, enablement, and governance that make AI a standing capability.</p></div></div>
+  </div>
+
+  <div class="pg-foot"><span>Zentitech - Company Brochure</span><span>02</span></div>
+</section>
+
+<!-- ===== Page 3: Consulting ===== -->
+<section class="page">
+  <div class="ptop">
+    <div>
+      <p class="eyebrow" style="color:var(--consult)">01 · AI Strategic Consulting</p>
+      <h2 class="big">We decide where AI actually wins.</h2>
+    </div>
+    <svg class="picon" viewBox="0 0 64 64" fill="none"><path d="M10 46l14-16 10 8 20-24" stroke="#7d5cff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 52h44" stroke="#7d5cff" stroke-width="3.5" stroke-linecap="round"/></svg>
+  </div>
+  <div class="rule" style="background:var(--consult)"></div>
+  <p class="lede">We do not leave you with a slide deck and a set of aspirations. You get a prioritised, costed roadmap, an operating model, and - if you want it - a working pilot that proves the strategy is real. Because the team that writes the strategy can also build it, our recommendations are always grounded in what is achievable.</p>
+
+  <div class="blk">
+    <div class="lbl">How it works</div>
+    <div class="steps">
+      <div class="stp"><div class="sn">1</div><div><h4>Discover and assess</h4><p>Map goals, data and technology readiness, and where AI genuinely moves the needle.</p></div></div>
+      <div class="stp"><div class="sn">2</div><div><h4>Prioritise use cases</h4><p>Score every opportunity across value, feasibility, and risk into a ranked backlog.</p></div></div>
+      <div class="stp"><div class="sn">3</div><div><h4>Design the operating model</h4><p>Ownership, governance, skills, tooling, and the human-review guardrails that keep it safe.</p></div></div>
+      <div class="stp"><div class="sn">4</div><div><h4>Roadmap and business case</h4><p>A sequenced plan and investment view a board can approve.</p></div></div>
+      <div class="stp"><div class="sn">5</div><div><h4>Prove it with a pilot</h4><p>Optionally build the top use case, validating the strategy in your real context.</p></div></div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="lbl">What you receive</div>
+    <ul class="checks">
+      <li>AI opportunity and readiness assessment</li>
+      <li>Prioritised, costed use-case backlog</li>
+      <li>Target operating model and governance</li>
+      <li>Board-ready roadmap and business case</li>
+    </ul>
+  </div>
+
+  <div class="pg-foot"><span>Zentitech - Company Brochure</span><span>03</span></div>
+</section>
+
+<!-- ===== Page 4: Delivery ===== -->
+<section class="page">
+  <div class="ptop">
+    <div>
+      <p class="eyebrow" style="color:var(--delivery)">02 · AI Delivery</p>
+      <h2 class="big">We turn strategy into software you own.</h2>
+    </div>
+    <svg class="picon" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="10" stroke="#e08a00" stroke-width="3.5"/><path d="M32 8v6M32 50v6M8 32h6M50 32h6M15 15l4 4M45 45l4 4M49 15l-4 4M19 45l-4 4" stroke="#e08a00" stroke-width="3.5" stroke-linecap="round"/></svg>
+  </div>
+  <div class="rule" style="background:var(--delivery)"></div>
+  <p class="lede">Most AI pilots never reach production. The missing ingredient is rarely the idea - it is a delivery capability that can turn it into hardened, governed, maintainable software. We design, build, integrate, and harden the system to production standard, then hand it over with the documentation your team needs to run it.</p>
+
+  <div class="blk">
+    <div class="lbl">What we build</div>
+    <div class="cards">
+      <div class="card"><h4>Video platforms</h4><p>Self-serve tools that wrap the Seedance pipeline, with approvals and an asset library.</p></div>
+      <div class="card"><h4>Workflow tools</h4><p>Automating intake, triage, drafting, QA, and reporting - agents work, humans approve.</p></div>
+      <div class="card"><h4>Agentic automation</h4><p>Multi-agent workflows grounded in your data and systems through secure connectors.</p></div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="lbl">Built to production standard</div>
+    <ul class="checks">
+      <li>A deployed application or automation you own</li>
+      <li>Secure integrations to your systems and data</li>
+      <li>Evaluations, monitoring, and cost dashboards</li>
+      <li>Human-in-the-loop review and a full audit trail</li>
+      <li>Authentication and least-privilege access</li>
+      <li>Handover docs, runbooks, and enablement</li>
+    </ul>
+  </div>
+
+  <div class="pg-foot"><span>Zentitech - Company Brochure</span><span>04</span></div>
+</section>
+
+<!-- ===== Page 5: Video ===== -->
+<section class="page">
+  <div class="ptop">
+    <div>
+      <p class="eyebrow" style="color:var(--video)">03 · AI Video Generation</p>
+      <h2 class="big">Cinematic, on-brand video. Brief to broadcast.</h2>
+    </div>
+    <svg class="picon" viewBox="0 0 64 64" fill="none"><rect x="6" y="16" width="42" height="32" rx="7" stroke="#0071e3" stroke-width="3.5"/><path d="M48 27l10-6v22l-10-6" stroke="#0071e3" stroke-width="3.5" stroke-linejoin="round"/><path d="M24 27l12 5-12 5z" fill="#0071e3"/></svg>
+  </div>
+  <div class="rule" style="background:var(--video)"></div>
+  <p class="lede">Built on Seedance, a leading text-to-video and image-to-video model, our pipeline produces far more video, far faster, at a dramatically lower cost per asset - without giving up creative control or brand safety. Start from a script, or bring existing stills, product shots, and characters to life.</p>
+
+  <div class="blk">
+    <div class="lbl">The pipeline</div>
+    <div class="steps">
+      <div class="stp"><div class="sn">1</div><div><h4>Brief and script</h4><p>Concept, storyboard, and prompt design that turn an idea into a generation plan.</p></div></div>
+      <div class="stp"><div class="sn">2</div><div><h4>Style frames</h4><p>Brand-locked look development so every output is consistent with your identity.</p></div></div>
+      <div class="stp"><div class="sn">3</div><div><h4>Seedance generation</h4><p>Text-to-video and image-to-video, in batches, with cinematic camera and motion control.</p></div></div>
+      <div class="stp"><div class="sn">4</div><div><h4>Edit and sound</h4><p>Editing, colour grading, music, voiceover, and captioning to a finished film.</p></div></div>
+      <div class="stp"><div class="sn">5</div><div><h4>Deliver</h4><p>Multi-format, per-channel export, adapted across placements, markets, and languages.</p></div></div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="lbl">Why it stands out</div>
+    <ul class="checks">
+      <li>Brand-consistent at volume</li>
+      <li>Human-in-the-loop brand safety</li>
+      <li>Text-to-video and image-to-video</li>
+      <li>Economics that improve with scale</li>
+    </ul>
+  </div>
+
+  <div class="pg-foot"><span>Zentitech - Company Brochure</span><span>05</span></div>
+</section>
+
+<!-- ===== Page 6: Accelerator ===== -->
+<section class="page">
+  <div class="ptop">
+    <div>
+      <p class="eyebrow" style="color:var(--accel)">04 · AI Accelerator</p>
+      <h2 class="big">One win becomes an AI-native organisation.</h2>
+    </div>
+    <svg class="picon" viewBox="0 0 64 64" fill="none"><path d="M40 8c-12 4-20 14-24 26l14 14c12-4 22-12 26-24 2-6 2-12 2-16-4 0-10 0-18 0z" stroke="#00a37a" stroke-width="3.5" stroke-linejoin="round"/><circle cx="40" cy="24" r="4.5" stroke="#00a37a" stroke-width="3.5"/></svg>
+  </div>
+  <div class="rule" style="background:var(--accel)"></div>
+  <p class="lede">The accelerator packages strategy, delivery, and creative into a fast, repeatable programme. It leaves behind reusable assets, playbooks, and enablement that make AI a standing capability, not a one-off project. We step back as your capability steps up.</p>
+
+  <div class="blk">
+    <div class="lbl">How it works</div>
+    <div class="steps">
+      <div class="stp"><div class="sn">1</div><div><h4>Baseline and pick the first wins</h4><p>Assess readiness, agree the ambition, select high-value use cases to lead with.</p></div></div>
+      <div class="stp"><div class="sn">2</div><div><h4>Ship a lighthouse use case</h4><p>Deliver the first use case to production - proof that is real and worth building on.</p></div></div>
+      <div class="stp"><div class="sn">3</div><div><h4>Build reusable foundations</h4><p>Prompt libraries, agent templates, and pipelines become shared building blocks.</p></div></div>
+      <div class="stp"><div class="sn">4</div><div><h4>Enable your team</h4><p>Upskilling, playbooks, and a standing centre of excellence.</p></div></div>
+      <div class="stp"><div class="sn">5</div><div><h4>Scale and compound</h4><p>Each new use case ships faster than the last as the platform matures.</p></div></div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="lbl">What you are left with</div>
+    <ul class="checks">
+      <li>A live, production use case delivering value</li>
+      <li>Reusable assets that speed the next build</li>
+      <li>A team trained to build and operate AI</li>
+      <li>Full ownership - no black boxes, no lock-in</li>
+    </ul>
+  </div>
+
+  <div class="pg-foot"><span>Zentitech - Company Brochure</span><span>06</span></div>
+</section>
+
+<!-- ===== Page 7: How we work + Why ===== -->
+<section class="page">
+  <p class="eyebrow" style="color:var(--navy)">How we work</p>
+  <h2 class="big">Short, gated, outcome-based phases.</h2>
+  <div class="rule" style="background:var(--teal)"></div>
+  <p class="lede">Each phase ends with something you can use, and a gate where you decide whether to continue. You start small, see the result, and scale what works - never locked into a long programme on the strength of a single pitch.</p>
+
+  <div class="half">
+    <div class="phase"><span class="pn">01</span><div><h4>Discover</h4><p>Goals, constraints, data, and success metrics.</p></div></div>
+    <div class="phase"><span class="pn">02</span><div><h4>Frame</h4><p>Scope, approach, and a costed plan.</p></div></div>
+    <div class="phase"><span class="pn">03</span><div><h4>Prototype</h4><p>A working pilot or first video set, fast, in your context.</p></div></div>
+    <div class="phase"><span class="pn">04</span><div><h4>Build</h4><p>Hardening to production: integrations, guardrails, evaluations, handover.</p></div></div>
+    <div class="phase"><span class="pn">05</span><div><h4>Scale</h4><p>Adoption, measurement, and expansion to the next use case.</p></div></div>
+  </div>
+
+  <p class="eyebrow" style="color:var(--navy);margin-top:30px">Why Zentitech</p>
+  <div class="why">
+    <div class="w"><h4>Advice you can deploy</h4><p>Strategy and delivery in one team - nothing lost in translation.</p></div>
+    <div class="w"><h4>Creative and technical</h4><p>Filmmakers and engineers side by side, so output is on-brand and production-grade.</p></div>
+    <div class="w"><h4>Weeks, not quarters</h4><p>Tight sprints with working software at the end of each.</p></div>
+    <div class="w"><h4>You own the output</h4><p>Code, prompts, and pipelines handed over. No lock-in.</p></div>
+    <div class="w"><h4>Governed by design</h4><p>Brand safety, IP, privacy, and human review built in from day one.</p></div>
+    <div class="w"><h4>Model-agnostic</h4><p>Seedance for video and the best-fit model for every other job.</p></div>
+  </div>
+
+  <div class="pg-foot"><span>Zentitech - Company Brochure</span><span>07</span></div>
+</section>
+
+<!-- ===== Page 8: Back cover ===== -->
+<section class="page back">
+  <div class="brandrow">
+    <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+      <rect width="48" height="48" rx="12" fill="#e9eef3"/>
+      <path d="M9 9H39V15H9Z" fill="#1e3050"/><path d="M33 15H39L15 33H9Z" fill="#1e3050"/><path d="M9 33H39V39H9Z" fill="#1e3050"/>
+      <rect x="9" y="13.2" width="20" height="2.3" fill="#3bbccd"/><rect x="19" y="32.8" width="20" height="2.3" fill="#3bbccd"/>
+    </svg>
+    <span class="name" style="color:#fff">Zentitech</span>
+  </div>
+  <div>
+    <h2>Let's turn your AI ambition into something shipped.</h2>
+    <p class="sub">Start with a discovery call and a costed plan. Low-risk, and you own everything we build.</p>
+    <div class="contact">
+      <div><span class="k">Email</span> <a href="mailto:info@zentitech.com">info@zentitech.com</a></div>
+      <div><span class="k">Web</span> <a href="https://zentitech.com">zentitech.com</a></div>
+    </div>
+  </div>
+  <div>
+    <p style="color:var(--teal);font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px">AI Video · Strategic Consulting · Delivery</p>
+    <p class="disc">This brochure is a company overview. Timelines and packages are indicative starting points, confirmed after a scoping conversation. Contact details are placeholders - please update before external distribution.</p>
+  </div>
+</section>
+
+</body>
+</html>
