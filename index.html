@@ -178,6 +178,8 @@
       </svg>
       <span>Zentitech</span>
     </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu"><span></span></label>
     <div class="nav-links">
       <a href="#consulting">Consulting</a>
       <a href="#delivery">Delivery</a>
@@ -353,6 +355,13 @@
     setTimeout(function(){window.location=href;},260);
   });
 })();
+// Close mobile menu after tapping a nav link
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){
+    var t=document.getElementById('nav-toggle');
+    if(t) t.checked=false;
+  });
+});
 </script>
 </body>
 </html>
