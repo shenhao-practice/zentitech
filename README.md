@@ -4,22 +4,36 @@ Marketing website for **Zentitech** — *We turn AI ambition into shipped outcom
 
 AI Video · Strategic Consulting · Delivery
 
-## Contents
+## Project structure
 
-| File | Purpose |
-| --- | --- |
-| `index.html` | Home page |
-| `consulting.html` | Strategic consulting |
-| `delivery.html` | Delivery services |
-| `video.html` | AI video |
-| `accelerator.html` | Accelerator program |
-| `zentitech-brochure.html` | Brochure (web) |
-| `zentitech-brochure.pdf` | Brochure (PDF) |
-| `styles.css` | Shared styles |
+```
+.
+├── index.html              # Home page (entry point)
+├── README.md
+├── assets/                 # Static assets
+│   ├── css/
+│   │   └── styles.css      # Shared styles
+│   ├── pdf/
+│   │   └── zentitech-brochure.pdf
+│   └── img/                # (add images here)
+└── pages/                  # Sub-pages
+    ├── consulting.html
+    ├── delivery.html
+    ├── video.html
+    ├── accelerator.html
+    └── zentitech-brochure.html
+```
+
+### Conventions for expanding the site
+
+- **New page** → add to `pages/`. Link its stylesheet as `../assets/css/styles.css` and link home as `../index.html`.
+- **New asset** → put CSS in `assets/css/`, images in `assets/img/`, downloads in `assets/pdf/`.
+- **From `index.html`** (root) → reference sub-pages as `pages/…` and assets as `assets/…`.
+- The brochure PDF is downloadable from the home page's **Get started** (contact) section.
 
 ## Run locally
 
-It's a static site — open `index.html` directly, or serve the folder:
+Static site — serve the folder from the repo root:
 
 ```bash
 python3 -m http.server 8000
@@ -28,4 +42,5 @@ python3 -m http.server 8000
 
 ## Live site
 
-Published via GitHub Pages from the `main` branch. See repository **Settings → Pages**.
+Published via GitHub Pages from the `main` branch (root). See repository **Settings → Pages**.
+Live at: https://shenhao-practice.github.io/zentitech/
